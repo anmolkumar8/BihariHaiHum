@@ -47,6 +47,7 @@ body {
 }
 .hero h2 {
   font-size: clamp(2rem, 4vw, 3rem);
+  background-color: #222;
 }
 .hero button {
   margin-top: 2rem;

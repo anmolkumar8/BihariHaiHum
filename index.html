@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BihariHaiHum – Explore Bihar Heritage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>BihariHaiHum</h1>
+    <nav>
+      <a href="#quiz">Heritage Quiz</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>खोजिये बिहार की विरासत</h2>
+      <p>Test your knowledge of Bihar’s culture, monuments & festivals.</p>
+      <button id="start-btn">Start the Game</button>
+    </section>
+
+    <section id="quiz" class="quiz hidden">
+      <div class="progress"><div id="progress-bar"></div></div>
+      <div id="question-container" class="card">
+        <h3 id="question"></h3>
+        <ul id="answer-buttons" class="answer-buttons"></ul>
+      </div>
+    </section>
+
+    <section id="result" class="hidden">
+      <h2 id="score-text"></h2>
+      <button id="restart-btn">Play Again</button>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About This Project</h2>
+      <p>
+        This mini‑site celebrates Bihar’s heritage through an interactive quiz
+        game. Crafted with ❤️ using vanilla&nbsp;HTML, CSS & JavaScript.
+      </p>
+    </section>
+  </main>
+
+  <footer>© 2025 BihariHaiHum • Made by Anmol Kumar</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,92 +1,98 @@
-// ========================
-// 1. Guess the Monument
-// ========================
-document.getElementById("start-monument-quiz").addEventListener("click", function () {
-  const questions = [
-    {
-      question: "Which monument is located in Bodh Gaya?",
-      options: ["Mahabodhi Temple", "Golghar", "Nalanda Ruins", "Vikramshila"],
-      answer: "Mahabodhi Temple"
-    },
-    {
-      question: "Where is the ancient university of Nalanda located?",
-      options: ["Patna", "Gaya", "Nalanda", "Vaishali"],
-      answer: "Nalanda"
-    }
-  ];
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #F5F5DC;
+    color: #333;
+}
 
-  let score = 0;
-  let current = 0;
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://wallpaperaccess.com/full/4543121.jpg') center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
 
-  function askQuestion() {
-    const q = questions[current];
-    const userAnswer = prompt(`${q.question}\nOptions:\n${q.options.join("\n")}`);
-    if (userAnswer && userAnswer.toLowerCase() === q.answer.toLowerCase()) {
-      alert("Correct!");
-      score++;
-    } else {
-      alert(`Wrong! The correct answer was ${q.answer}`);
-    }
-    current++;
-    if (current < questions.length) {
-      askQuestion();
-    } else {
-      alert(`Quiz Over! Your score is ${score}/${questions.length}`);
-    }
-  }
+.hero-content h1 {
+    font-family: 'Mukta', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
 
-  askQuestion();
-});
+.hero-content p {
+    font-size: 1.2rem;
+}
 
-// =============================
-// 2. Festival Match Challenge
-// =============================
-document.getElementById("start-festival-match").addEventListener("click", function () {
-  const festivals = {
-    "Chhath Puja": "Sun God Worship",
-    "Sama-Chakeva": "Brother-Sister Bond",
-    "Sonepur Mela": "Cattle Fair",
-    "Durga Puja": "Goddess Worship"
-  };
+section {
+    padding: 40px 20px;
+}
 
-  let score = 0;
-  let keys = Object.keys(festivals);
-  keys = keys.sort(() => Math.random() - 0.5); // Shuffle
+h2 {
+    font-family: 'Mukta', sans-serif;
+    font-size: 2rem;
+    color: #800000;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-  keys.forEach((festival) => {
-    const answer = prompt(`What is "${festival}" known for?`);
-    if (answer && answer.toLowerCase().includes(festivals[festival].toLowerCase())) {
-      alert("Correct!");
-      score++;
-    } else {
-      alert(`Wrong! Correct: ${festivals[festival]}`);
-    }
-  });
+.region-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px;
+}
 
-  alert(`You matched ${score} out of ${keys.length} festivals correctly!`);
-});
+.region-card {
+    min-width: 240px;
+    background-color: #FFD700;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-weight: bold;
+}
 
-// ===========================
-// 3. Folk Song Audio Match
-// ===========================
-document.getElementById("start-folk-song").addEventListener("click", function () {
-  const songs = [
-    { src: "audio/bidesia.mp3", name: "Bidesia" },
-    { src: "audio/jhijhiya.mp3", name: "Jhijhiya" },
-    { src: "audio/sohar.mp3", name: "Sohar" }
-  ];
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
 
-  const random = songs[Math.floor(Math.random() * songs.length)];
-  const audio = new Audio(random.src);
-  audio.play();
+.game-card {
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
 
-  const guess = prompt("Guess the folk song being played (Bidesia, Jhijhiya, Sohar):");
+.game-card:hover {
+    transform: translateY(-5px);
+    background-color: #fff7ec;
+}
 
-  if (guess && guess.toLowerCase() === random.name.toLowerCase()) {
-    alert("Correct!");
-  } else {
-    alert(`Wrong! It was ${random.name}`);
-  }
+.game-card h3 {
+    color: #4B0082;
+    margin-bottom: 10px;
+}
 
-  audio.pause();
-});
+button {
+    background-color: #800000;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #A52A2A;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #800000;
+    color: white;
+    margin-top: 40px;
+}

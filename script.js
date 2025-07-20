@@ -1,42 +1,91 @@
-const themeToggle = document.getElementById("themeToggle");
-const body = document.body;
-const music = document.getElementById("bgMusic");
+const startBtn = document.getElementById("start-btn");
+const questionWrap = document.getElementById("question-container");
+const answerList = document.getElementById("answer-buttons");
+const quizSection = document.getElementById("quiz");
+const resultSection = document.getElementById("result");
+const scoreText = document.getElementById("score-text");
+const progressBar = document.getElementById("progress-bar");
+const restartBtn = document.getElementById("restart-btn");
 
-let isFestival = true;
+const questions = [
+  {
+    q: "Where is the ancient university of Nalanda located?",
+    options: ["Patna", "Rajgir", "Nalanda District", "Gaya"],
+    answer: 2,
+  },
+  {
+    q: "Chhath Puja primarily worships which deity?",
+    options: ["Surya (Sun)", "Ganga", "Shiva", "Lakshmi"],
+    answer: 0,
+  },
+  {
+    q: "The Madhubani painting style originated in which region of Bihar?",
+    options: ["Champaran", "Mithila", "Magadh", "Anga"],
+    answer: 1,
+  },
+  {
+    q: "Which river flows beside the city of Patna?",
+    options: ["Ganga", "Kosi", "Son", "Gandak"],
+    answer: 0,
+  },
+  {
+    q: "The Barabar Caves were built during the reign of which emperor?",
+    options: ["Ashoka", "Chandragupta Maurya", "Bindusara", "Harsha"],
+    answer: 0,
+  },
+];
 
-themeToggle.addEventListener("click", () => {
-  isFestival = !isFestival;
-  if (isFestival) {
-    body.classList.add("festival-theme");
-    body.classList.remove("dark-theme");
-    music.play();
-  } else {
-    body.classList.add("dark-theme");
-    body.classList.remove("festival-theme");
-    music.pause();
-  }
+let current = 0;
+let score = 0;
+
+startBtn.addEventListener("click", () => {
+  document.querySelector(".hero").classList.add("hidden");
+  quizSection.classList.remove("hidden");
+  current = score = 0;
+  loadQuestion();
 });
 
-// Simple Game Logic Examples
-function startQuiz() {
-  const question = confirm("Is Patna the capital of Bihar?");
-  alert(question ? "Correct! 🎉" : "Oops! Try again.");
+restartBtn.addEventListener("click", () => {
+  resultSection.classList.add("hidden");
+  quizSection.classList.remove("hidden");
+  current = score = 0;
+  loadQuestion();
+});
+
+function loadQuestion() {
+  resetAnswers();
+  const { q, options } = questions[current];
+  questionWrap.querySelector("#question").textContent = q;
+  options.forEach((opt, idx) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.dataset.idx = idx;
+    btn.addEventListener("click", selectAnswer);
+    const li = document.createElement("li");
+    li.appendChild(btn);
+    answerList.appendChild(li);
+  });
+  updateProgress();
 }
 
-function startMonumentGuess() {
-  const guess = prompt("Guess the monument: This dome-shaped structure stores grain and is in Patna.");
-  if (guess.toLowerCase().includes("golghar")) {
-    alert("Correct! That's Golghar.");
-  } else {
-    alert("Nope! It's Golghar.");
-  }
+function resetAnswers() {
+  answerList.innerHTML = "";
 }
 
-function startFestivalMatch() {
-  const ans = confirm("Is Chhath Puja celebrated in Bihar?");
-  alert(ans ? "Correct! 🌞 Chhath is major in Bihar." : "Wrong! Chhath is very important.");
+function selectAnswer(e) {
+  const chosen = +e.target.dataset.idx;
+  if (chosen === questions[current].answer) score++;
+  current++;
+  current < questions.length ? loadQuestion() : finishQuiz();
 }
 
-function startFolkTune() {
-  alert("🎵 Game will match folk tunes to their regions – Coming soon!");
+function updateProgress() {
+  progressBar.style.width = `${(current / questions.length) * 100}%`;
+}
+
+function finishQuiz() {
+  progressBar.style.width = "100%";
+  quizSection.classList.add("hidden");
+  resultSection.classList.remove("hidden");
+  scoreText.textContent = `You scored ${score} / ${questions.length}!`;
 }

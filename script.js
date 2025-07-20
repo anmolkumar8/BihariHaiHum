@@ -1,55 +1,42 @@
-const themeToggle = document.getElementById('theme-toggle');
-const music = document.getElementById('festival-music');
-let themes = ['light', 'dark', 'festival'];
-let current = 0;
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+const music = document.getElementById("bgMusic");
 
-function setTheme(index) {
-  document.body.className = themes[index];
-  themeToggle.textContent = index === 0 ? '🌞' : index === 1 ? '🌙' : '🪔';
-  if (themes[index] === 'festival') music.play(); else music.pause();
-}
+let isFestival = true;
 
-themeToggle.addEventListener('click', () => {
-  current = (current + 1) % themes.length;
-  setTheme(current);
+themeToggle.addEventListener("click", () => {
+  isFestival = !isFestival;
+  if (isFestival) {
+    body.classList.add("festival-theme");
+    body.classList.remove("dark-theme");
+    music.play();
+  } else {
+    body.classList.add("dark-theme");
+    body.classList.remove("festival-theme");
+    music.pause();
+  }
 });
 
-setTheme(current);
-
-// Game Logic
+// Simple Game Logic Examples
 function startQuiz() {
-  const container = document.getElementById('game-container');
-  container.innerHTML = `
-    <h3>🧠 Bihar Quiz</h3>
-    <p>Q1: What is the capital of Bihar?</p>
-    <button onclick="alert('Correct!')">Patna</button>
-    <button onclick="alert('Wrong!')">Gaya</button>
-    <p>Q2: Famous festival celebrated in Bihar?</p>
-    <button onclick="alert('Correct!')">Chhath Puja</button>
-    <button onclick="alert('Wrong!')">Baisakhi</button>
-  `;
+  const question = confirm("Is Patna the capital of Bihar?");
+  alert(question ? "Correct! 🎉" : "Oops! Try again.");
 }
 
-function startMonumentGame() {
-  const container = document.getElementById('game-container');
-  container.innerHTML = `
-    <h3>🏛️ Guess the Monument</h3>
-    <img src="assets/golghar.jpg" alt="Monument" style="width:100%; max-width:300px;">
-    <p>Guess the name of this monument:</p>
-    <button onclick="alert('Correct!')">Golghar</button>
-    <button onclick="alert('Wrong!')">Qutub Minar</button>
-  `;
+function startMonumentGuess() {
+  const guess = prompt("Guess the monument: This dome-shaped structure stores grain and is in Patna.");
+  if (guess.toLowerCase().includes("golghar")) {
+    alert("Correct! That's Golghar.");
+  } else {
+    alert("Nope! It's Golghar.");
+  }
 }
 
-function startMusicMatch() {
-  const container = document.getElementById('game-container');
-  container.innerHTML = `
-    <h3>🎵 Match the Folk Tune</h3>
-    <audio controls>
-      <source src="assets/bihar-song.mp3" type="audio/mpeg">
-    </audio>
-    <p>Which song is this?</p>
-    <button onclick="alert('Correct!')">Ho Gaini Dhin</button>
-    <button onclick="alert('Wrong!')">Kala Chashma</button>
-  `;
+function startFestivalMatch() {
+  const ans = confirm("Is Chhath Puja celebrated in Bihar?");
+  alert(ans ? "Correct! 🌞 Chhath is major in Bihar." : "Wrong! Chhath is very important.");
+}
+
+function startFolkTune() {
+  alert("🎵 Game will match folk tunes to their regions – Coming soon!");
 }

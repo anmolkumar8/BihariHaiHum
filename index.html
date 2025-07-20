@@ -1,113 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incredible Bihar</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Emblem_of_Bihar.svg/1200px-Emblem_of_Bihar.svg.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Bihar</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>
+    <h1>Welcome to Bihar</h1>
+    <button id="theme-toggle">🌞</button>
+  </header>
 
-    <!-- Background music -->
-    <audio autoplay loop hidden>
-        <source src="https://cdn.pixabay.com/audio/2022/03/26/audio_b1e8d8bc5a.mp3" type="audio/mp3">
-    </audio>
-
-    <!-- Hero Banner -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Incredible Bihar 🇮🇳</h1>
-            <p>Explore the rich heritage, diverse culture, and fascinating history of Bihar!</p>
-        </div>
-    </header>
-
-    <!-- Regions of Bihar -->
-    <section class="regions">
-        <h2>🌍 Regions of Bihar & Their Specialties</h2>
-        <div class="region-cards">
-            <div class="region-card">Patna – Golghar, Mahavir Mandir, Bihar Museum</div>
-            <div class="region-card">Gaya – Bodh Gaya, Vishnupad Temple, Buddhist Sites</div>
-            <div class="region-card">Muzaffarpur – Litchi hub, Baba Garib Nath Mandir</div>
-            <div class="region-card">Madhubani – Mithila paintings & folk art</div>
-            <div class="region-card">Bhagalpur – Silk city, Vikramshila University</div>
-            <div class="region-card">Nalanda – Ancient university ruins, Nalanda International University</div>
-            <div class="region-card">Darbhanga – Raj Palace, classical music & culture</div>
-        </div>
+  <main>
+    <section class="intro">
+      <p>Explore the rich culture, heritage, food, and traditions of Bihar!</p>
     </section>
 
-    <!-- Interactive Games -->
-    <section class="games-section">
-        <h2>🎮 Explore Bihar Through Games</h2>
-        <div class="games-grid">
-            <div class="game-card">
-                <h3>🧠 Quiz: Know Bihar</h3>
-                <p>Test your knowledge about Bihar's history, art, and culture!</p>
-                <button onclick="startGame('quiz')">Start Quiz</button>
-            </div>
-            <div class="game-card">
-                <h3>🕍 Guess the Monument</h3>
-                <p>Match the picture to the correct monument from Bihar.</p>
-                <button onclick="startGame('monument')">Play Now</button>
-            </div>
-            <div class="game-card">
-                <h3>🧵 Festival Match</h3>
-                <p>Match festivals with regions & rituals.</p>
-                <button onclick="startGame('festival')">Start</button>
-            </div>
-            <div class="game-card">
-                <h3>🎭 Dress the Dancer</h3>
-                <p>Drag and drop traditional attire on a dancer avatar.</p>
-                <button onclick="startGame('dancer')">Try It</button>
-            </div>
-            <div class="game-card">
-                <h3>🧭 Silk Route Maze</h3>
-                <p>Navigate trade routes like ancient merchants of Bhagalpur!</p>
-                <button onclick="startGame('maze')">Enter Maze</button>
-            </div>
-            <div class="game-card">
-                <h3>🎨 Mithila Art Puzzle</h3>
-                <p>Reconstruct a famous Madhubani painting.</p>
-                <button onclick="startGame('art')">Solve Puzzle</button>
-            </div>
-            <div class="game-card">
-                <h3>📜 History Timeline</h3>
-                <p>Arrange key events in Bihar’s history in the correct order.</p>
-                <button onclick="startGame('timeline')">Arrange Now</button>
-            </div>
-            <div class="game-card">
-                <h3>🎶 Folk Song Match</h3>
-                <p>Guess the folk song playing and its region.</p>
-                <button onclick="startGame('folksong')">Start</button>
-            </div>
-            <div class="game-card">
-                <h3>🏛 Temple Architecture</h3>
-                <p>Identify styles of temples in Bihar (Pala, Maurya, etc.)</p>
-                <button onclick="startGame('temple')">Play Now</button>
-            </div>
-            <div class="game-card">
-                <h3>🍛 Culinary Challenge</h3>
-                <p>Guess the dish from its ingredients and photo.</p>
-                <button onclick="startGame('food')">Let’s Eat!</button>
-            </div>
-            <div class="game-card">
-                <h3>📸 Photo Spot Hunt</h3>
-                <p>Guess the tourist spot from a blurred photo!</p>
-                <button onclick="startGame('photo')">Guess Spot</button>
-            </div>
-            <div class="game-card">
-                <h3>🎤 Bhojpuri Karaoke</h3>
-                <p>Sing along or guess the Bhojpuri song lyrics!</p>
-                <button onclick="startGame('karaoke')">Sing Now</button>
-            </div>
-        </div>
+    <section class="games">
+      <h2>🎮 Play Cultural Games</h2>
+      <div class="game-links">
+        <button onclick="startQuiz()">🧠 Bihar Quiz</button>
+        <button onclick="startMonumentGame()">🏛️ Guess the Monument</button>
+        <button onclick="startMusicMatch()">🎵 Folk Music Match</button>
+      </div>
+
+      <div id="game-container"></div>
     </section>
+  </main>
 
-    <footer>
-        <p>Made with ❤️ to celebrate the heritage of Bihar | Designed by Anmol Kumar</p>
-    </footer>
+  <footer>
+    <p>© Bihar Tourism Experience</p>
+  </footer>
 
+  <audio id="festival-music" loop>
+    <source src="assets/festival-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>

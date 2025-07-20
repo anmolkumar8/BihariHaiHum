@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bihar Heritage & Games</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Rubik&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hidden Gems of Bihar</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
 </head>
-<body class="festival-theme">
-  <header>
-    <h1>🎉 Bihar's Cultural Carnival</h1>
-    <button id="themeToggle">🌓 Theme</button>
-  </header>
+<body>
+    <header>
+        <h1>✨ Bihar – Unveiling Hidden Gems ✨</h1>
+        <nav>
+            <ul>
+                <li><a href="#festivals">Festivals</a></li>
+                <li><a href="#tourism">Tourist Places</a></li>
+                <li><a href="#horror">Horror Tales</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="intro">
-    <h2>✨ Explore the Heritage</h2>
-    <p>Welcome! Dive into Bihar’s rich culture, from games to festivals, folk music, and hidden gems!</p>
-  </section>
+    <section id="intro">
+        <h2>Welcome to Bihar’s Secret Treasures</h2>
+        <p>Discover the cultural heartland of India – full of untold stories, ancient sites, festivals, and mysterious legends.</p>
+    </section>
 
-  <section class="regions">
-    <h2>🗺️ Regions of Bihar</h2>
-    <div class="region-cards">
-      <div class="card">
-        <h3>Patna</h3>
-        <p>Historic capital with Golghar and Patna Sahib</p>
-      </div>
-      <div class="card">
-        <h3>Bodh Gaya</h3>
-        <p>Spiritual heart where Buddha attained enlightenment</p>
-      </div>
-      <div class="card">
-        <h3>Madhubani</h3>
-        <p>Famous for intricate Mithila paintings</p>
-      </div>
-      <div class="card">
-        <h3>Vaishali</h3>
-        <p>Ancient democracy and birthplace of Mahavira</p>
-      </div>
-    </div>
-  </section>
+    <section id="festivals">
+        <h2>🎉 Festivals</h2>
+        <p>Bihar celebrates Chhath, Sama-Chakeva, Jitiya, and more with unmatched spiritual energy.</p>
+        <button onclick="festivalGame()">Play Festival Matching Game</button>
+        <div class="extra">
+            <p><strong>Fun Fact:</strong> Chhath Puja is the only Vedic festival dedicated to the Solar deity, Surya.</p>
+        </div>
+    </section>
 
-  <section class="game-zone">
-    <h2>🎮 Game Zone</h2>
-    <div class="games-grid">
-      <button class="game-btn" onclick="startQuiz()">🧠 Bihar Quiz</button>
-      <button class="game-btn" onclick="startMonumentGuess()">🏛️ Guess the Monument</button>
-      <button class="game-btn" onclick="startFestivalMatch()">🎊 Match the Festival</button>
-      <button class="game-btn" onclick="startFolkTune()">🎵 Folk Tune Puzzle</button>
-      <button class="game-btn">🧩 Bhojpuri Word Jumble</button>
-      <button class="game-btn">🖌️ Madhubani Art Match</button>
-      <button class="game-btn">🪔 Diya Drop (Festival Game)</button>
-      <button class="game-btn">🍲 Bihari Food Puzzle</button>
-      <button class="game-btn">👑 King’s Treasure Hunt</button>
-      <button class="game-btn">📍Map Drag & Drop</button>
-    </div>
-  </section>
+    <section id="tourism">
+        <h2>🛕 Tourist Places</h2>
+        <p>Visit Nalanda, Bodh Gaya, Madhubani, and Valmiki Tiger Reserve to witness Bihar’s glory.</p>
+        <button onclick="monumentGame()">Guess the Monument</button>
+        <div class="extra">
+            <p><strong>Mini Documentary:</strong> <a href="https://youtu.be/xxxx" target="_blank">Watch Bodh Gaya's story</a></p>
+        </div>
+    </section>
 
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_94b3283ac3.mp3" type="audio/mpeg">
-  </audio>
+    <section id="horror">
+        <h2>👻 Horror Tales</h2>
+        <p>Explore spooky legends like the Haunted Tunnel of Bhagalpur and the ghost bride of Darbhanga.</p>
+        <button onclick="horrorEscape()">Escape the Horror!</button>
+        <div class="extra">
+            <p><strong>Real Account:</strong> "Locals say screams echo every full moon at Bhagalpur's station..."</p>
+        </div>
+    </section>
 
-  <footer>
-    <p>🌟 Built with ❤️ to celebrate Bihar’s cultural spirit.</p>
-  </footer>
+    <section id="languages">
+        <h2>🗣️ Languages</h2>
+        <p>Languages like Maithili, Bhojpuri, Magahi, and Angika echo the state’s soul.</p>
+        <button onclick="languageMatch()">Language Matching Game</button>
+        <div class="extra">
+            <audio controls>
+                <source src="maithili_clip.mp3" type="audio/mp3" />
+                Your browser does not support audio.
+            </audio>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Hidden Bihar | Designed with ❤️</p>
+    </footer>
 </body>
 </html>

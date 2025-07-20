@@ -3,162 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bihari Hai Hum</title>
-    <meta name="description" content="A dynamic website exploring the rich culture, history, and traditions of Bihar, India.">
-    <meta name="keywords" content="Bihar, Bihari, Indian Culture, Bhojpuri, Mithila, Magadh, Games, Tradition">
-    <meta name="author" content="Anmol Kumar">
+    <title>Incredible Bihar</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background-color: #f3f0e6;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #8c3d35;
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 2rem;
-        }
-        section {
-            padding: 2rem;
-            border-bottom: 1px solid #ccc;
-        }
-        h2 {
-            color: #8c3d35;
-        }
-        .games-grid, .regions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        .card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 1rem;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.03);
-        }
-        .card h3 {
-            margin-top: 0;
-        }
-        button {
-            background-color: #8c3d35;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 0.5rem;
-        }
-        button:hover {
-            background-color: #a1453c;
-        }
-    </style>
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Emblem_of_Bihar.svg/1200px-Emblem_of_Bihar.svg.png" type="image/png">
 </head>
 <body>
-    <header>
-        🇮🇳 Bihari Hai Hum – Explore Bihar's Rich Legacy 🇮🇳
+
+    <!-- Background music -->
+    <audio autoplay loop hidden>
+        <source src="https://cdn.pixabay.com/audio/2022/03/26/audio_b1e8d8bc5a.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Hero Banner -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Incredible Bihar 🇮🇳</h1>
+            <p>Explore the rich heritage, diverse culture, and fascinating history of Bihar!</p>
+        </div>
     </header>
 
-    <section>
-        <h2>🧠 Interactive Games</h2>
+    <!-- Regions of Bihar -->
+    <section class="regions">
+        <h2>🌍 Regions of Bihar & Their Specialties</h2>
+        <div class="region-cards">
+            <div class="region-card">Patna – Golghar, Mahavir Mandir, Bihar Museum</div>
+            <div class="region-card">Gaya – Bodh Gaya, Vishnupad Temple, Buddhist Sites</div>
+            <div class="region-card">Muzaffarpur – Litchi hub, Baba Garib Nath Mandir</div>
+            <div class="region-card">Madhubani – Mithila paintings & folk art</div>
+            <div class="region-card">Bhagalpur – Silk city, Vikramshila University</div>
+            <div class="region-card">Nalanda – Ancient university ruins, Nalanda International University</div>
+            <div class="region-card">Darbhanga – Raj Palace, classical music & culture</div>
+        </div>
+    </section>
+
+    <!-- Interactive Games -->
+    <section class="games-section">
+        <h2>🎮 Explore Bihar Through Games</h2>
         <div class="games-grid">
-            <div class="card">
-                <h3>1. Heritage Crossword</h3>
-                <p>Solve clues related to Bihar's cultural terms.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🧠 Quiz: Know Bihar</h3>
+                <p>Test your knowledge about Bihar's history, art, and culture!</p>
+                <button onclick="startGame('quiz')">Start Quiz</button>
             </div>
-            <div class="card">
-                <h3>2. Guess the Monument</h3>
-                <p>Identify famous monuments from Bihar using images.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🕍 Guess the Monument</h3>
+                <p>Match the picture to the correct monument from Bihar.</p>
+                <button onclick="startGame('monument')">Play Now</button>
             </div>
-            <div class="card">
-                <h3>3. Festival Match Challenge</h3>
-                <p>Match festivals with their cultural significance.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🧵 Festival Match</h3>
+                <p>Match festivals with regions & rituals.</p>
+                <button onclick="startGame('festival')">Start</button>
             </div>
-            <div class="card">
-                <h3>4. Folk Song Audio Match</h3>
-                <p>Match the folk tune to its region and name.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🎭 Dress the Dancer</h3>
+                <p>Drag and drop traditional attire on a dancer avatar.</p>
+                <button onclick="startGame('dancer')">Try It</button>
             </div>
-            <div class="card">
-                <h3>5. Famous Food Plate Builder</h3>
-                <p>Build a plate using Bihar’s iconic dishes like Litti-Chokha.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🧭 Silk Route Maze</h3>
+                <p>Navigate trade routes like ancient merchants of Bhagalpur!</p>
+                <button onclick="startGame('maze')">Enter Maze</button>
             </div>
-            <div class="card">
-                <h3>6. Dress the Dancer</h3>
-                <p>Match traditional outfits to dance styles.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🎨 Mithila Art Puzzle</h3>
+                <p>Reconstruct a famous Madhubani painting.</p>
+                <button onclick="startGame('art')">Solve Puzzle</button>
             </div>
-            <div class="card">
-                <h3>7. Script Decoder</h3>
-                <p>Translate ancient inscriptions found in Bihar.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>📜 History Timeline</h3>
+                <p>Arrange key events in Bihar’s history in the correct order.</p>
+                <button onclick="startGame('timeline')">Arrange Now</button>
             </div>
-            <div class="card">
-                <h3>8. Silk Route Maze</h3>
-                <p>Navigate the ancient trade routes through Bihar.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🎶 Folk Song Match</h3>
+                <p>Guess the folk song playing and its region.</p>
+                <button onclick="startGame('folksong')">Start</button>
             </div>
-            <div class="card">
-                <h3>9. Temple Architecture Puzzle</h3>
-                <p>Rearrange blocks to reveal ancient temple layouts.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🏛 Temple Architecture</h3>
+                <p>Identify styles of temples in Bihar (Pala, Maurya, etc.)</p>
+                <button onclick="startGame('temple')">Play Now</button>
             </div>
-            <div class="card">
-                <h3>10. Find the Region</h3>
-                <p>Select the correct region based on a clue or image.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🍛 Culinary Challenge</h3>
+                <p>Guess the dish from its ingredients and photo.</p>
+                <button onclick="startGame('food')">Let’s Eat!</button>
             </div>
-            <div class="card">
-                <h3>11. Festival Fireworks Clicker</h3>
-                <p>Tap and celebrate Bihar’s festivals interactively!</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>📸 Photo Spot Hunt</h3>
+                <p>Guess the tourist spot from a blurred photo!</p>
+                <button onclick="startGame('photo')">Guess Spot</button>
             </div>
-            <div class="card">
-                <h3>12. Time Travel Adventure</h3>
-                <p>Choose a region & century to explore Bihar’s past.</p>
-                <button>Play Now</button>
+            <div class="game-card">
+                <h3>🎤 Bhojpuri Karaoke</h3>
+                <p>Sing along or guess the Bhojpuri song lyrics!</p>
+                <button onclick="startGame('karaoke')">Sing Now</button>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>📌 Explore Regions of Bihar</h2>
-        <div class="regions-grid">
-            <div class="card">
-                <h3>Mithila</h3>
-                <p>Known for Madhubani painting, Maithili language, and Sita’s birthplace (Sitamarhi).</p>
-            </div>
-            <div class="card">
-                <h3>Magadh</h3>
-                <p>Includes Bodh Gaya and Nalanda, ancient learning hubs. Root of Buddhism and Jainism.</p>
-            </div>
-            <div class="card">
-                <h3>Anga</h3>
-                <p>Famous for Bhagalpur silk and Vikramshila University.</p>
-            </div>
-            <div class="card">
-                <h3>Bhojpur</h3>
-                <p>Home of Bhojpuri language and vibrant folk songs.</p>
-            </div>
-            <div class="card">
-                <h3>Simanchal</h3>
-                <p>Diverse region with strong cultural and linguistic diversity.</p>
-            </div>
-        </div>
-    </section>
+    <footer>
+        <p>Made with ❤️ to celebrate the heritage of Bihar | Designed by Anmol Kumar</p>
+    </footer>
+
 </body>
 </html>

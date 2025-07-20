@@ -1,71 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hidden Gems of Bihar</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BihariHaiHum – Explore Bihar Heritage</title>
+  <meta name="description" content="Explore Bihar's rich heritage with interactive quizzes, fun facts, and games about culture, monuments, and festivals." />
+  <meta name="keywords" content="Bihar, heritage, quiz, culture, tourism, festivals, monuments" />
+  <meta name="author" content="Anmol Kumar" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>✨ Bihar – Unveiling Hidden Gems ✨</h1>
-        <nav>
-            <ul>
-                <li><a href="#festivals">Festivals</a></li>
-                <li><a href="#tourism">Tourist Places</a></li>
-                <li><a href="#horror">Horror Tales</a></li>
-                <li><a href="#languages">Languages</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="navbar">
+    <h1>BihariHaiHum</h1>
+    <nav>
+      <a href="#quiz">Heritage Quiz</a>
+      <a href="#facts">Bihar Facts</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-    <section id="intro">
-        <h2>Welcome to Bihar’s Secret Treasures</h2>
-        <p>Discover the cultural heartland of India – full of untold stories, ancient sites, festivals, and mysterious legends.</p>
+  <main>
+    <section class="hero">
+      <h2>\u0916\u094b\u091c\u093f\u092f\u0947 \u092c\u093f\u0939\u093e\u0930 \u0915\u0940 \u0935\u093f\u0930\u093e\u0938\u0924</h2>
+      <p>Test your knowledge of Bihar’s rich cultural heritage and traditions!</p>
+      <button id="start-btn">Start Quiz</button>
     </section>
 
-    <section id="festivals">
-        <h2>🎉 Festivals</h2>
-        <p>Bihar celebrates Chhath, Sama-Chakeva, Jitiya, and more with unmatched spiritual energy.</p>
-        <button onclick="festivalGame()">Play Festival Matching Game</button>
-        <div class="extra">
-            <p><strong>Fun Fact:</strong> Chhath Puja is the only Vedic festival dedicated to the Solar deity, Surya.</p>
-        </div>
+    <section id="quiz" class="quiz hidden">
+      <div class="progress"><div id="progress-bar"></div></div>
+      <div id="question-container" class="card">
+        <h3 id="question"></h3>
+        <ul id="answer-buttons" class="answer-buttons"></ul>
+      </div>
     </section>
 
-    <section id="tourism">
-        <h2>🛕 Tourist Places</h2>
-        <p>Visit Nalanda, Bodh Gaya, Madhubani, and Valmiki Tiger Reserve to witness Bihar’s glory.</p>
-        <button onclick="monumentGame()">Guess the Monument</button>
-        <div class="extra">
-            <p><strong>Mini Documentary:</strong> <a href="https://youtu.be/xxxx" target="_blank">Watch Bodh Gaya's story</a></p>
-        </div>
+    <section id="result" class="hidden">
+      <h2 id="score-text"></h2>
+      <button id="restart-btn">Try Again</button>
     </section>
 
-    <section id="horror">
-        <h2>👻 Horror Tales</h2>
-        <p>Explore spooky legends like the Haunted Tunnel of Bhagalpur and the ghost bride of Darbhanga.</p>
-        <button onclick="horrorEscape()">Escape the Horror!</button>
-        <div class="extra">
-            <p><strong>Real Account:</strong> "Locals say screams echo every full moon at Bhagalpur's station..."</p>
-        </div>
+    <section id="facts" class="facts">
+      <h2>Interesting Facts About Bihar</h2>
+      <div class="facts-grid">
+        <div class="fact-card">Nalanda was the world's first residential university.</div>
+        <div class="fact-card">Chhath Puja is one of the oldest Hindu festivals still celebrated with devotion.</div>
+        <div class="fact-card">Bihar has given India leaders like Chanakya, Ashoka, and Guru Gobind Singh.</div>
+        <div class="fact-card">Madhubani paintings are a globally recognized folk art style.</div>
+      </div>
     </section>
 
-    <section id="languages">
-        <h2>🗣️ Languages</h2>
-        <p>Languages like Maithili, Bhojpuri, Magahi, and Angika echo the state’s soul.</p>
-        <button onclick="languageMatch()">Language Matching Game</button>
-        <div class="extra">
-            <audio controls>
-                <source src="maithili_clip.mp3" type="audio/mp3" />
-                Your browser does not support audio.
-            </audio>
-        </div>
+    <section id="about" class="about">
+      <h2>About This Project</h2>
+      <p>This engaging mini-site was created to showcase the unmatched beauty of Bihar through quizzes, fun facts, and mini-games, using HTML, CSS, and JavaScript.</p>
     </section>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Hidden Bihar | Designed with ❤️</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 BihariHaiHum | Designed with ❤️ by Anmol Kumar</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

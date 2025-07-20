@@ -1,92 +1,55 @@
-// ========================
-// 1. Guess the Monument
-// ========================
-document.getElementById("start-monument-quiz").addEventListener("click", function () {
-  const questions = [
-    {
-      question: "Which monument is located in Bodh Gaya?",
-      options: ["Mahabodhi Temple", "Golghar", "Nalanda Ruins", "Vikramshila"],
-      answer: "Mahabodhi Temple"
-    },
-    {
-      question: "Where is the ancient university of Nalanda located?",
-      options: ["Patna", "Gaya", "Nalanda", "Vaishali"],
-      answer: "Nalanda"
-    }
-  ];
+const themeToggle = document.getElementById('theme-toggle');
+const music = document.getElementById('festival-music');
+let themes = ['light', 'dark', 'festival'];
+let current = 0;
 
-  let score = 0;
-  let current = 0;
+function setTheme(index) {
+  document.body.className = themes[index];
+  themeToggle.textContent = index === 0 ? '🌞' : index === 1 ? '🌙' : '🪔';
+  if (themes[index] === 'festival') music.play(); else music.pause();
+}
 
-  function askQuestion() {
-    const q = questions[current];
-    const userAnswer = prompt(`${q.question}\nOptions:\n${q.options.join("\n")}`);
-    if (userAnswer && userAnswer.toLowerCase() === q.answer.toLowerCase()) {
-      alert("Correct!");
-      score++;
-    } else {
-      alert(`Wrong! The correct answer was ${q.answer}`);
-    }
-    current++;
-    if (current < questions.length) {
-      askQuestion();
-    } else {
-      alert(`Quiz Over! Your score is ${score}/${questions.length}`);
-    }
-  }
-
-  askQuestion();
+themeToggle.addEventListener('click', () => {
+  current = (current + 1) % themes.length;
+  setTheme(current);
 });
 
-// =============================
-// 2. Festival Match Challenge
-// =============================
-document.getElementById("start-festival-match").addEventListener("click", function () {
-  const festivals = {
-    "Chhath Puja": "Sun God Worship",
-    "Sama-Chakeva": "Brother-Sister Bond",
-    "Sonepur Mela": "Cattle Fair",
-    "Durga Puja": "Goddess Worship"
-  };
+setTheme(current);
 
-  let score = 0;
-  let keys = Object.keys(festivals);
-  keys = keys.sort(() => Math.random() - 0.5); // Shuffle
+// Game Logic
+function startQuiz() {
+  const container = document.getElementById('game-container');
+  container.innerHTML = `
+    <h3>🧠 Bihar Quiz</h3>
+    <p>Q1: What is the capital of Bihar?</p>
+    <button onclick="alert('Correct!')">Patna</button>
+    <button onclick="alert('Wrong!')">Gaya</button>
+    <p>Q2: Famous festival celebrated in Bihar?</p>
+    <button onclick="alert('Correct!')">Chhath Puja</button>
+    <button onclick="alert('Wrong!')">Baisakhi</button>
+  `;
+}
 
-  keys.forEach((festival) => {
-    const answer = prompt(`What is "${festival}" known for?`);
-    if (answer && answer.toLowerCase().includes(festivals[festival].toLowerCase())) {
-      alert("Correct!");
-      score++;
-    } else {
-      alert(`Wrong! Correct: ${festivals[festival]}`);
-    }
-  });
+function startMonumentGame() {
+  const container = document.getElementById('game-container');
+  container.innerHTML = `
+    <h3>🏛️ Guess the Monument</h3>
+    <img src="assets/golghar.jpg" alt="Monument" style="width:100%; max-width:300px;">
+    <p>Guess the name of this monument:</p>
+    <button onclick="alert('Correct!')">Golghar</button>
+    <button onclick="alert('Wrong!')">Qutub Minar</button>
+  `;
+}
 
-  alert(`You matched ${score} out of ${keys.length} festivals correctly!`);
-});
-
-// ===========================
-// 3. Folk Song Audio Match
-// ===========================
-document.getElementById("start-folk-song").addEventListener("click", function () {
-  const songs = [
-    { src: "audio/bidesia.mp3", name: "Bidesia" },
-    { src: "audio/jhijhiya.mp3", name: "Jhijhiya" },
-    { src: "audio/sohar.mp3", name: "Sohar" }
-  ];
-
-  const random = songs[Math.floor(Math.random() * songs.length)];
-  const audio = new Audio(random.src);
-  audio.play();
-
-  const guess = prompt("Guess the folk song being played (Bidesia, Jhijhiya, Sohar):");
-
-  if (guess && guess.toLowerCase() === random.name.toLowerCase()) {
-    alert("Correct!");
-  } else {
-    alert(`Wrong! It was ${random.name}`);
-  }
-
-  audio.pause();
-});
+function startMusicMatch() {
+  const container = document.getElementById('game-container');
+  container.innerHTML = `
+    <h3>🎵 Match the Folk Tune</h3>
+    <audio controls>
+      <source src="assets/bihar-song.mp3" type="audio/mpeg">
+    </audio>
+    <p>Which song is this?</p>
+    <button onclick="alert('Correct!')">Ho Gaini Dhin</button>
+    <button onclick="alert('Wrong!')">Kala Chashma</button>
+  `;
+}

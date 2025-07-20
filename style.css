@@ -1,75 +1,82 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Rubik', sans-serif;
+  transition: background 0.5s, color 0.5s;
+}
+
+.festival-theme {
+  background: #fffaf0;
+  color: #4b2e2e;
+}
+
+.dark-theme {
+  background: #121212;
+  color: #fff;
 }
 
 header {
-  background: var(--bg-header);
-  color: var(--text);
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background: #800000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  position: sticky;
+  top: 0;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
+  padding: 10px 20px;
+  background: gold;
   border: none;
-  border-radius: 6px;
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.game-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+button:hover {
+  transform: scale(1.05);
 }
 
-#game-container {
-  background: var(--card);
-  padding: 1rem;
-  border-radius: 10px;
+.intro, .regions, .game-zone {
+  padding: 30px;
+  text-align: center;
 }
 
-/* Light Theme */
-:root {
-  --bg: #ffffff;
-  --text: #222;
-  --btn-bg: #f0f0f0;
-  --btn-text: #000;
-  --bg-header: #e0e0e0;
-  --card: #fdfdfd;
+.region-cards, .games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-/* Dark Theme */
-body.dark {
-  --bg: #121212;
-  --text: #ffffff;
-  --btn-bg: #333;
-  --btn-text: #fff;
-  --bg-header: #1a1a1a;
-  --card: #222;
+.card {
+  background: cornsilk;
+  padding: 15px;
+  border: 2px solid #d4a017;
+  border-radius: 12px;
+  transition: transform 0.3s;
 }
 
-/* Festival Theme */
-body.festival {
-  --bg: #fff8e1;
-  --text: #4e342e;
-  --btn-bg: #ffd54f;
-  --btn-text: #000;
-  --bg-header: #ffe082;
-  --card: #ffecb3;
-  background-image: url('assets/rangoli-bg.png');
-  background-size: cover;
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px gold;
+}
+
+footer {
+  background: #800000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 600px) {
-  .game-links {
-    flex-direction: column;
+  header, .intro, .regions, .game-zone {
+    padding: 10px;
+  }
+
+  .games-grid, .region-cards {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,98 +1,75 @@
 body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: #F5F5DC;
-    color: #333;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://wallpaperaccess.com/full/4543121.jpg') center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 60px 20px;
-}
-
-.hero-content h1 {
-    font-family: 'Mukta', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-}
-
-section {
-    padding: 40px 20px;
-}
-
-h2 {
-    font-family: 'Mukta', sans-serif;
-    font-size: 2rem;
-    color: #800000;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.region-cards {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 10px;
-}
-
-.region-card {
-    min-width: 240px;
-    background-color: #FFD700;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    font-weight: bold;
-}
-
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-}
-
-.game-card {
-    background: #fff3e0;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    background-color: #fff7ec;
-}
-
-.game-card h3 {
-    color: #4B0082;
-    margin-bottom: 10px;
+header {
+  background: var(--bg-header);
+  color: var(--text);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
-    background-color: #800000;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
 }
 
-button:hover {
-    background-color: #A52A2A;
+.game-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #800000;
-    color: white;
-    margin-top: 40px;
+#game-container {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Light Theme */
+:root {
+  --bg: #ffffff;
+  --text: #222;
+  --btn-bg: #f0f0f0;
+  --btn-text: #000;
+  --bg-header: #e0e0e0;
+  --card: #fdfdfd;
+}
+
+/* Dark Theme */
+body.dark {
+  --bg: #121212;
+  --text: #ffffff;
+  --btn-bg: #333;
+  --btn-text: #fff;
+  --bg-header: #1a1a1a;
+  --card: #222;
+}
+
+/* Festival Theme */
+body.festival {
+  --bg: #fff8e1;
+  --text: #4e342e;
+  --btn-bg: #ffd54f;
+  --btn-text: #000;
+  --bg-header: #ffe082;
+  --card: #ffecb3;
+  background-image: url('assets/rangoli-bg.png');
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  .game-links {
+    flex-direction: column;
+  }
 }
